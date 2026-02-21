@@ -34,9 +34,16 @@ This project uses Clarinet for Stacks dApp development.
    ```
 
 ## Running Devnet
-To start local Stacks node:
+To start the local Stacks blockchain node for development:
 ```
 clarinet devnet start
+```
+
+This will start a local devnet with Stacks node, Bitcoin node, and other services in Docker containers.
+
+To stop the devnet:
+```
+clarinet devnet stop
 ```
 
 ## Testing Contracts
