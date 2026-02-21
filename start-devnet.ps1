@@ -1,2 +1,3 @@
 # Start Devnet
-.\clarinet\clarinet.exe devnet start
+# This script starts the local Stacks devnet for development
+clarinet devnet start
