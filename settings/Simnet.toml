@@ -3,9 +3,9 @@ name = "simnet"
 deployment_fee_rate = 10
 
 [accounts.deployer]
-mnemonic = "fragile twice sell invite acquire kitten bamboo drastic jelly vivid peace spawn guilt pave pen praise pork easy bless zero similar vacuum edit glove farm"
+mnemonic = "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about"
 balance = 1000000000000000
 
 [accounts.wallet_1]
-mnemonic = "sell invite acquire kitten bamboo drastic jelly vivid peace spawn twice guilt pave pen praise pork easy bless zero similar vacuum edit glove farm"
+mnemonic = "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about"
 balance = 1000000000000000
