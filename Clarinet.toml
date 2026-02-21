@@ -1,0 +1,13 @@
+[project]
+name = "newweb3"
+description = "Stacks dApp"
+authors = []
+telemetry = false
+
+[contracts.sample]
+path = "contracts/sample.clar"
+depends_on = []
+
+[repl]
+costs_version = 2
+parser_version = 2
