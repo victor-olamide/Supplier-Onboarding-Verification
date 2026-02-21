@@ -4,7 +4,12 @@ A decentralized platform for transparent and verifiable sustainable supply chain
 
 ## Setup
 
-See [SETUP.md](SETUP.md) for development environment setup.
+See [SETUP.md](SETUP.md) for detailed development environment setup.
+
+### Quick Prerequisites
+- Node.js (v16+)
+- Clarinet CLI
+- Docker
 
 ## Features
 
