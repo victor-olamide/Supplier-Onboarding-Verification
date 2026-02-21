@@ -8,6 +8,10 @@ telemetry = false
 path = "contracts/sample.clar"
 depends_on = []
 
+[contracts.counter]
+path = "contracts/counter.clar"
+depends_on = []
+
 [repl]
 costs_version = 2
 parser_version = 2
