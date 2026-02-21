@@ -22,6 +22,17 @@ This project uses Clarinet for Stacks dApp development.
 4. Install Docker Desktop from https://www.docker.com/products/docker-desktop
 5. Clone the repository (if not already done)
 
+## Project Setup
+1. Navigate to the project directory
+2. Install project dependencies:
+   ```
+   npm install
+   ```
+3. Install Clarinet dependencies for the project:
+   ```
+   clarinet install
+   ```
+
 ## Running Devnet
 To start local Stacks node:
 ```
