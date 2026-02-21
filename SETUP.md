@@ -3,9 +3,11 @@
 This project uses Clarinet for Stacks dApp development.
 
 ## Prerequisites
-- Node.js installed
-- Clarinet CLI installed
+- Node.js (version 16 or higher) installed
+- npm (comes with Node.js)
+- Clarinet CLI installed globally
 - Docker installed (for local devnet)
+- Git for version control
 
 ## Installation Steps
 1. Install Node.js from https://nodejs.org/
