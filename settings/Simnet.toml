@@ -1,9 +1,0 @@
-[network]
-name = "simnet"
-deployment_fee_rate = 10
-
-[accounts.deployer]
-balance = 1000000000000000
-
-[accounts.wallet_1]
-balance = 1000000000000000
