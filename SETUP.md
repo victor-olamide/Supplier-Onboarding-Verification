@@ -47,6 +47,14 @@ clarinet devnet stop
 ```
 
 ## Testing Contracts
+To run the Clarity contract tests:
+```
+clarinet test
+```
+
+To open the Clarinet console for interactive testing:
 ```
 clarinet console
 ```
+
+This allows you to deploy contracts and interact with them in a REPL environment.
