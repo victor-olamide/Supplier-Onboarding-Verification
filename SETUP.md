@@ -1,4 +1,4 @@
-# Development Environment Setup
+# Development Environment Setup for Stacks Blockchain
 
 This project uses Clarinet for Stacks dApp development.
 
