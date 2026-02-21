@@ -2,6 +2,10 @@
 
 A decentralized platform for transparent and verifiable sustainable supply chains, leveraging the Stacks blockchain to track product lifecycles from source to consumer. Empowering eco-conscious consumers and ethical suppliers through NFTs, DAOs, and Clarity smart contracts deployed on Stacks mainnet.
 
+## Setup
+
+See [SETUP.md](SETUP.md) for development environment setup.
+
 ## Features
 
 - **Supplier Onboarding & Verification**: Secure registration with oracle-backed credential checks and community voting.
