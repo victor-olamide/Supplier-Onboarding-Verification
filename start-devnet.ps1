@@ -1,3 +1,10 @@
 # Start Devnet
 # This script starts the local Stacks devnet for development
-clarinet devnet start
+
+try {
+    clarinet devnet start
+    Write-Host "Devnet started successfully."
+} catch {
+    Write-Host "Error starting devnet: $_"
+    exit 1
+}
