@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "devnet": "cd .. && ./clarinet/clarinet.exe devnet start"
   },
   "dependencies": {
     "@stacks/connect": "^7.0.0",
