@@ -58,3 +58,20 @@ clarinet console
 ```
 
 This allows you to deploy contracts and interact with them in a REPL environment.
+
+## Deployment
+To generate deployment plans:
+```
+clarinet deployments generate --devnet
+```
+
+To apply deployments to devnet:
+```
+clarinet deployments apply --devnet
+```
+
+For mainnet deployment (use with caution):
+```
+clarinet deployments generate --mainnet
+clarinet deployments apply --mainnet
+```
