@@ -10,10 +10,17 @@ This project uses Clarinet for Stacks dApp development.
 - Git for version control
 
 ## Installation Steps
-1. Install Node.js from https://nodejs.org/
-2. Download Clarinet from https://github.com/stx-labs/clarinet/releases
-3. Extract to a directory and add to PATH
+1. Install Node.js from https://nodejs.org/ (version 16 or higher)
+2. Install Clarinet CLI globally using npm:
+   ```
+   npm install -g @hirosystems/clarinet-cli
+   ```
+3. Verify Clarinet installation:
+   ```
+   clarinet --version
+   ```
 4. Install Docker Desktop from https://www.docker.com/products/docker-desktop
+5. Clone the repository (if not already done)
 
 ## Running Devnet
 To start local Stacks node:
