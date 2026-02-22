@@ -51,3 +51,13 @@
 (define-read-only (get-contract-balance)
   (stx-get-account (as-contract tx-sender))
 )
+
+;; Read-only function to check if supplier is registered
+(define-read-only (is-supplier-registered (supplier-contract <supplier-trait>) (supplier-id uint))
+  (let
+    (
+      (supplier-data (contract-call? supplier-contract get-supplier supplier-id))
+    )
+    (is-some supplier-data)
+  )
+)
