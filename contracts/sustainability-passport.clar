@@ -1,4 +1,5 @@
 ;; Sustainability Passport NFT Contract
+;; NFT contract for minting and managing product sustainability passports
 
 ;; SIP-009 NFT Trait
 (define-trait sip009-nft-trait
