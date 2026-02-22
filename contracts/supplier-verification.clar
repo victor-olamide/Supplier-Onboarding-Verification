@@ -83,6 +83,11 @@
   )
 )
 
+;; Read-only function to get oracle response
+(define-read-only (get-oracle-response (supplier-id uint) (credential-type uint))
+  (map-get? oracle-responses { supplier-id: supplier-id, credential-type: credential-type })
+)
+
 ;; Function to authorize an oracle (admin only)
 (define-public (authorize-oracle (oracle principal))
   (let
