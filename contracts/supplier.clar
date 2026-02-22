@@ -92,7 +92,7 @@
 (define-read-only (get-supplier (supplier-id uint))
   (match (map-get? suppliers supplier-id)
     supplier (ok supplier)
-    (err u1)
+    ERR-SUPPLIER-NOT-FOUND
   )
 )
 
