@@ -66,6 +66,23 @@
   )
 )
 
+;; Function to verify supplier credentials using oracle data
+(define-public (verify-supplier-credentials (supplier-contract <supplier-trait>) (supplier-id uint))
+  (let
+    (
+      (license-response (map-get? oracle-responses { supplier-id: supplier-id, credential-type: CREDENTIAL-TYPE-LICENSE }))
+      (cert-response (map-get? oracle-responses { supplier-id: supplier-id, credential-type: CREDENTIAL-TYPE-CERTIFICATION }))
+      (compliance-response (map-get? oracle-responses { supplier-id: supplier-id, credential-type: CREDENTIAL-TYPE-COMPLIANCE }))
+    )
+    (begin
+      (asserts! (and (is-some license-response) (is-some cert-response) (is-some compliance-response)) ERR-INVALID-CREDENTIAL-TYPE)
+      (asserts! (and (get verified (unwrap-panic license-response)) (get verified (unwrap-panic cert-response)) (get verified (unwrap-panic compliance-response))) ERR-INVALID-CREDENTIAL-TYPE)
+      (try! (contract-call? supplier-contract verify-supplier supplier-id))
+      (ok true)
+    )
+  )
+)
+
 ;; Function to authorize an oracle (admin only)
 (define-public (authorize-oracle (oracle principal))
   (let
