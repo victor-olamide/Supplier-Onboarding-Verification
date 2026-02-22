@@ -115,3 +115,16 @@
     )
   )
 )
+
+;; Function to burn NFT (only by owner)
+(define-public (burn (token-id uint))
+  (let
+    (
+      (owner (unwrap! (nft-get-owner? sustainability-passport token-id) ERR-TOKEN-NOT-FOUND))
+    )
+    (begin
+      (asserts! (is-eq tx-sender owner) ERR-NOT-AUTHORIZED)
+      (nft-burn? sustainability-passport token-id owner)
+    )
+  )
+)
