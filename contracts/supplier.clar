@@ -91,3 +91,18 @@
     (err u1)
   )
 )
+
+(define-public (add-ipfs-hash (supplier-id uint) (hash (string-ascii 64)))
+  (let
+    (
+      (supplier (unwrap! (map-get? suppliers supplier-id) (err u1)))
+      (current-hashes (get ipfs-hashes supplier))
+    )
+    (begin
+      (map-set suppliers supplier-id
+        (merge supplier { ipfs-hashes: (append current-hashes hash) })
+      )
+      (ok true)
+    )
+  )
+)
