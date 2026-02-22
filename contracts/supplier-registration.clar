@@ -31,7 +31,7 @@
 ;; Function to update registration fee (only by contract owner)
 (define-public (update-registration-fee (new-fee uint))
   (begin
-    (asserts! (is-eq tx-sender CONTRACT-OWNER) (err u102))
+    (asserts! (is-eq tx-sender CONTRACT-OWNER) ERR-UNAUTHORIZED)
     (var-set registration-fee new-fee)
     (ok true)
   )
