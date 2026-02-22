@@ -36,3 +36,8 @@
 (define-constant ERR-NOT-AUTHORIZED (err u100))
 (define-constant ERR-TOKEN-NOT-FOUND (err u101))
 (define-constant ERR-INVALID-SCORE (err u102))
+
+;; SIP-009 Implementation
+(define-read-only (get-last-token-id)
+  (ok (var-get last-token-id))
+)
