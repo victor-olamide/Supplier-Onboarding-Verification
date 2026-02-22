@@ -1,4 +1,5 @@
 ;; Supplier Registration Contract
+;; Handles supplier onboarding with fee payment
 
 ;; Import supplier trait
 (use-trait supplier-trait .supplier.supplier-trait)
