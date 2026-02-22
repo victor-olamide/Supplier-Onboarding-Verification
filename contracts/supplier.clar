@@ -59,7 +59,7 @@
 (define-public (update-supplier (supplier-id uint) (name (string-ascii 256)) (location (string-ascii 256)) (verification-status bool))
   (let
     (
-      (supplier (unwrap! (map-get? suppliers supplier-id) (err u1)))
+      (supplier (unwrap! (map-get? suppliers supplier-id) ERR-SUPPLIER-NOT-FOUND))
     )
     (begin
       (map-set suppliers supplier-id
