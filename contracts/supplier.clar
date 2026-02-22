@@ -30,3 +30,24 @@
       uint))
   )
 )
+
+;; Implement the supplier trait
+(define-public (register-supplier (supplier-principal principal) (name (string-ascii 256)) (location (string-ascii 256)))
+  (let
+    (
+      (new-id (var-get supplier-id-nonce))
+    )
+    (begin
+      (var-set supplier-id-nonce (+ new-id u1))
+      (map-set suppliers new-id
+        {
+          name: name,
+          location: location,
+          verification-status: false,
+          ipfs-hashes: (list)
+        }
+      )
+      (ok new-id)
+    )
+  )
+)
