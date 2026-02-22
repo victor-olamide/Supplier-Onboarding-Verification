@@ -88,3 +88,8 @@
     )
   )
 )
+
+;; Read-only function to get passport data
+(define-read-only (get-passport-data (token-id uint))
+  (map-get? passport-data token-id)
+)
