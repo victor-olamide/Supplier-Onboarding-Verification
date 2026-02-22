@@ -21,3 +21,8 @@
     (ok true)
   )
 )
+
+;; Read-only function to get registration fee
+(define-read-only (get-registration-fee)
+  REGISTRATION-FEE
+)
