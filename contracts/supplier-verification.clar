@@ -42,3 +42,17 @@
     )
   )
 )
+
+;; Function to authorize an oracle (admin only)
+(define-public (authorize-oracle (oracle principal))
+  (let
+    (
+      (current-oracles (var-get authorized-oracles))
+    )
+    (begin
+      (asserts! (is-eq tx-sender CONTRACT-OWNER) ERR-UNAUTHORIZED)
+      (var-set authorized-oracles (append current-oracles oracle))
+      (ok true)
+    )
+  )
+)
