@@ -27,3 +27,12 @@
     mint-date: uint
   }
 )
+
+;; Data variables
+(define-data-var last-token-id uint u0)
+(define-data-var base-uri (string-ascii 256) "https://api.example.com/passports/")
+
+;; Error constants
+(define-constant ERR-NOT-AUTHORIZED (err u100))
+(define-constant ERR-TOKEN-NOT-FOUND (err u101))
+(define-constant ERR-INVALID-SCORE (err u102))
