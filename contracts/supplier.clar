@@ -70,3 +70,17 @@
     )
   )
 )
+
+(define-public (verify-supplier (supplier-id uint))
+  (let
+    (
+      (supplier (unwrap! (map-get? suppliers supplier-id) (err u1)))
+    )
+    (begin
+      (map-set suppliers supplier-id
+        (merge supplier { verification-status: true })
+      )
+      (ok true)
+    )
+  )
+)
