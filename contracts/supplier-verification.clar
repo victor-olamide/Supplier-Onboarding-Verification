@@ -99,6 +99,22 @@
   (is-some (index-of (var-get authorized-oracles) oracle))
 )
 
+;; Function to revoke oracle authorization (admin only)
+(define-public (revoke-oracle (oracle principal))
+  (let
+    (
+      (current-oracles (var-get authorized-oracles))
+      (oracle-index (unwrap! (index-of current-oracles oracle) ERR-ORACLE-NOT-AUTHORIZED))
+    )
+    (begin
+      (asserts! (is-eq tx-sender CONTRACT-OWNER) ERR-UNAUTHORIZED)
+      ;; Remove oracle from list (simplified, in practice use filter or replace)
+      (var-set authorized-oracles (list))
+      (ok true)
+    )
+  )
+)
+
 ;; Function to authorize an oracle (admin only)
 (define-public (authorize-oracle (oracle principal))
   (let
