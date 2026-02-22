@@ -88,6 +88,11 @@
   (map-get? oracle-responses { supplier-id: supplier-id, credential-type: credential-type })
 )
 
+;; Read-only function to get authorized oracles
+(define-read-only (get-authorized-oracles)
+  (var-get authorized-oracles)
+)
+
 ;; Function to authorize an oracle (admin only)
 (define-public (authorize-oracle (oracle principal))
   (let
