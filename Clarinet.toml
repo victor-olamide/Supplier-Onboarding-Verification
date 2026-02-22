@@ -24,6 +24,10 @@ depends_on = ["supplier"]
 path = "contracts/supplier-verification.clar"
 depends_on = ["supplier"]
 
+[contracts.sustainability-passport]
+path = "contracts/sustainability-passport.clar"
+depends_on = []
+
 [repl]
 costs_version = 2
 parser_version = 2
