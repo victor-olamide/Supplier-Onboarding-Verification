@@ -115,6 +115,23 @@
   )
 )
 
+;; Read-only function to get supplier verification status
+(define-read-only (get-supplier-verification-status (supplier-id uint))
+  (let
+    (
+      (license-verified (get verified (default-to { verified: false, oracle-address: tx-sender, timestamp: u0, data-hash: "" } (map-get? oracle-responses { supplier-id: supplier-id, credential-type: CREDENTIAL-TYPE-LICENSE }))))
+      (cert-verified (get verified (default-to { verified: false, oracle-address: tx-sender, timestamp: u0, data-hash: "" } (map-get? oracle-responses { supplier-id: supplier-id, credential-type: CREDENTIAL-TYPE-CERTIFICATION }))))
+      (compliance-verified (get verified (default-to { verified: false, oracle-address: tx-sender, timestamp: u0, data-hash: "" } (map-get? oracle-responses { supplier-id: supplier-id, credential-type: CREDENTIAL-TYPE-COMPLIANCE }))))
+    )
+    {
+      license-verified: license-verified,
+      certification-verified: cert-verified,
+      compliance-verified: compliance-verified,
+      overall-verified: (and license-verified cert-verified compliance-verified)
+    }
+  )
+)
+
 ;; Function to authorize an oracle (admin only)
 (define-public (authorize-oracle (oracle principal))
   (let
