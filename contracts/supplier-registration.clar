@@ -10,6 +10,7 @@
 ;; Error constants
 (define-constant ERR-INSUFFICIENT-FEE (err u100))
 (define-constant ERR-REGISTRATION-FAILED (err u101))
+(define-constant ERR-UNAUTHORIZED (err u102))
 
 ;; Registration function with fee payment
 (define-public (register-supplier-with-fee (supplier-contract <supplier-trait>) (name (string-ascii 256)) (location (string-ascii 256)))
