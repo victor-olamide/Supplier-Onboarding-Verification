@@ -9,3 +9,21 @@
     (transfer (uint principal principal) (response bool uint))
   )
 )
+
+;; NFT Data Structure
+(define-non-fungible-token sustainability-passport uint)
+
+;; Passport data map
+(define-map passport-data
+  uint
+  {
+    product-name: (string-ascii 256),
+    supplier-id: uint,
+    sustainability-score: uint,
+    carbon-footprint: uint,
+    materials: (list 10 (string-ascii 64)),
+    certifications: (list 10 (string-ascii 64)),
+    ipfs-hash: (string-ascii 64),
+    mint-date: uint
+  }
+)
