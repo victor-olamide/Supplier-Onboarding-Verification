@@ -24,7 +24,7 @@
 
 ;; Read-only function to get registration fee
 (define-read-only (get-registration-fee)
-  REGISTRATION-FEE
+  (var-get registration-fee)
 )
 
 ;; Function to update registration fee (only by contract owner)
