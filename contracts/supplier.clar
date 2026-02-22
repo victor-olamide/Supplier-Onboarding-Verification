@@ -99,7 +99,7 @@
 (define-public (add-ipfs-hash (supplier-id uint) (hash (string-ascii 64)))
   (let
     (
-      (supplier (unwrap! (map-get? suppliers supplier-id) (err u1)))
+      (supplier (unwrap! (map-get? suppliers supplier-id) ERR-SUPPLIER-NOT-FOUND))
       (current-hashes (get ipfs-hashes supplier))
     )
     (begin
