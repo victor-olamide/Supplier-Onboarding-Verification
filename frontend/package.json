@@ -1,0 +1,15 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Frontend for Stacks dApp",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "devnet": "cd .. && ./clarinet/clarinet.exe devnet start"
+  },
+  "dependencies": {
+    "@stacks/connect": "^7.0.0",
+    "react": "^18.0.0"
+  }
+}
