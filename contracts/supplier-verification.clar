@@ -1,4 +1,5 @@
 ;; Supplier Verification Contract with Oracle Integration
+;; Integrates oracle calls for external verification of supplier credentials
 
 ;; Import supplier trait
 (use-trait supplier-trait .supplier.supplier-trait)
