@@ -43,6 +43,29 @@
   )
 )
 
+;; Function for oracle to submit verification response
+(define-public (submit-oracle-response (supplier-id uint) (credential-type uint) (verified bool) (data-hash (string-ascii 64)))
+  (let
+    (
+      (oracles (var-get authorized-oracles))
+    )
+    (begin
+      (asserts! (is-some (index-of oracles tx-sender)) ERR-ORACLE-NOT-AUTHORIZED)
+      (asserts! (or (= credential-type CREDENTIAL-TYPE-LICENSE) (= credential-type CREDENTIAL-TYPE-CERTIFICATION) (= credential-type CREDENTIAL-TYPE-COMPLIANCE)) ERR-INVALID-CREDENTIAL-TYPE)
+      (map-set oracle-responses
+        { supplier-id: supplier-id, credential-type: credential-type }
+        {
+          verified: verified,
+          oracle-address: tx-sender,
+          timestamp: block-height,
+          data-hash: data-hash
+        }
+      )
+      (ok true)
+    )
+  )
+)
+
 ;; Function to authorize an oracle (admin only)
 (define-public (authorize-oracle (oracle principal))
   (let
