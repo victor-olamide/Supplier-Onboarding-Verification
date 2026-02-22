@@ -3,6 +3,9 @@
 ;; Import supplier trait
 (use-trait supplier-trait .supplier.supplier-trait)
 
+;; Constants
+(define-constant CONTRACT-OWNER tx-sender)
+
 ;; Constants for credential types
 (define-constant CREDENTIAL-TYPE-LICENSE 1)
 (define-constant CREDENTIAL-TYPE-CERTIFICATION 2)
@@ -25,3 +28,17 @@
 )
 
 (define-data-var authorized-oracles (list 10 principal) (list))
+
+;; Function to authorize an oracle (admin only)
+(define-public (authorize-oracle (oracle principal))
+  (let
+    (
+      (current-oracles (var-get authorized-oracles))
+    )
+    (begin
+      (asserts! (is-eq tx-sender CONTRACT-OWNER) ERR-UNAUTHORIZED)
+      (var-set authorized-oracles (append current-oracles oracle))
+      (ok true)
+    )
+  )
+)
