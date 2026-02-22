@@ -31,7 +31,7 @@
 (define-public (update-registration-fee (new-fee uint))
   (begin
     (asserts! (is-eq tx-sender CONTRACT-OWNER) (err u102))
-    ;; In Clarity, constants can't be changed, so use a data-var
+    (var-set registration-fee new-fee)
     (ok true)
   )
 )
