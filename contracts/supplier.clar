@@ -78,7 +78,7 @@
 (define-public (verify-supplier (supplier-id uint))
   (let
     (
-      (supplier (unwrap! (map-get? suppliers supplier-id) (err u1)))
+      (supplier (unwrap! (map-get? suppliers supplier-id) ERR-SUPPLIER-NOT-FOUND))
     )
     (begin
       (map-set suppliers supplier-id
