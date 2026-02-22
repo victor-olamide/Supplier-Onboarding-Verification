@@ -20,6 +20,10 @@ depends_on = []
 path = "contracts/supplier-registration.clar"
 depends_on = ["supplier"]
 
+[contracts.supplier-verification]
+path = "contracts/supplier-verification.clar"
+depends_on = ["supplier"]
+
 [repl]
 costs_version = 2
 parser_version = 2
