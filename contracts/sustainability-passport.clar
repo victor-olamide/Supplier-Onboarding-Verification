@@ -93,3 +93,25 @@
 (define-read-only (get-passport-data (token-id uint))
   (map-get? passport-data token-id)
 )
+
+;; Function to update passport data (only by owner)
+(define-public (update-passport-data (token-id uint) (sustainability-score uint) (carbon-footprint uint) (certifications (list 10 (string-ascii 64))))
+  (let
+    (
+      (owner (unwrap! (nft-get-owner? sustainability-passport token-id) ERR-TOKEN-NOT-FOUND))
+      (current-data (unwrap! (map-get? passport-data token-id) ERR-TOKEN-NOT-FOUND))
+    )
+    (begin
+      (asserts! (is-eq tx-sender owner) ERR-NOT-AUTHORIZED)
+      (asserts! (<= sustainability-score u100) ERR-INVALID-SCORE)
+      (map-set passport-data token-id
+        (merge current-data {
+          sustainability-score: sustainability-score,
+          carbon-footprint: carbon-footprint,
+          certifications: certifications
+        })
+      )
+      (ok true)
+    )
+  )
+)
