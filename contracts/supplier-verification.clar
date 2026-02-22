@@ -93,6 +93,11 @@
   (var-get authorized-oracles)
 )
 
+;; Read-only function to check if oracle is authorized
+(define-read-only (is-oracle-authorized (oracle principal))
+  (is-some (index-of (var-get authorized-oracles) oracle))
+)
+
 ;; Function to authorize an oracle (admin only)
 (define-public (authorize-oracle (oracle principal))
   (let
