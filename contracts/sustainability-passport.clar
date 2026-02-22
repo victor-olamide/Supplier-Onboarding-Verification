@@ -54,3 +54,10 @@
 (define-read-only (get-owner (token-id uint))
   (ok (nft-get-owner? sustainability-passport token-id))
 )
+
+(define-public (transfer (token-id uint) (sender principal) (recipient principal))
+  (begin
+    (asserts! (is-eq tx-sender sender) ERR-NOT-AUTHORIZED)
+    (nft-transfer? sustainability-passport token-id sender recipient)
+  )
+)
