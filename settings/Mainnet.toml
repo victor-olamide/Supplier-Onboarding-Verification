@@ -1,0 +1,11 @@
+[network]
+name = "mainnet"
+deployment_fee_rate = 10
+
+[accounts.deployer]
+mnemonic = "twice kind fence tip hidden tilt action fragile skin nothing glory cousin green tomorrow spring wrist shed math olympic multiply hip blue scout claw"
+balance = 1000000000000000
+
+[accounts.wallet_1]
+mnemonic = "sell invite acquire kitten bamboo drastic jelly vivid peace spawn twice guilt pave pen praise pork easy bless zero similar vacuum edit glove farm"
+balance = 1000000000000000
