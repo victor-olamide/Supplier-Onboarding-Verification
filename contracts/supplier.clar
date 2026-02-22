@@ -1,5 +1,9 @@
 ;; Supplier contract for storing supplier information
 
+;; Error constants
+(define-constant ERR-SUPPLIER-NOT-FOUND (err u1))
+(define-constant ERR-INVALID-INPUT (err u2))
+
 ;; Define the supplier data structure
 (define-data-var supplier-id-nonce uint u0)
 
