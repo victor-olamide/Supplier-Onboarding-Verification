@@ -12,6 +12,10 @@ depends_on = []
 path = "contracts/counter.clar"
 depends_on = []
 
+[contracts.supplier]
+path = "contracts/supplier.clar"
+depends_on = []
+
 [repl]
 costs_version = 2
 parser_version = 2
