@@ -36,3 +36,12 @@
     (ok true)
   )
 )
+
+;; Function to withdraw collected fees (only by contract owner)
+(define-public (withdraw-fees (amount uint) (recipient principal))
+  (begin
+    (asserts! (is-eq tx-sender CONTRACT-OWNER) ERR-UNAUTHORIZED)
+    (try! (as-contract (stx-transfer? amount tx-sender recipient)))
+    (ok true)
+  )
+)
