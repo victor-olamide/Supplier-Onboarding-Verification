@@ -1,0 +1,25 @@
+[project]
+name = "newweb3"
+description = "Sustainable Supply Chain Tracker - Stacks dApp"
+authors = []
+telemetry = false
+
+[contracts.sample]
+path = "contracts/sample.clar"
+depends_on = []
+
+[contracts.counter]
+path = "contracts/counter.clar"
+depends_on = []
+
+[contracts.supplier]
+path = "contracts/supplier.clar"
+depends_on = []
+
+[contracts.supplier-registration]
+path = "contracts/supplier-registration.clar"
+depends_on = ["supplier"]
+
+[repl]
+costs_version = 2
+parser_version = 2
