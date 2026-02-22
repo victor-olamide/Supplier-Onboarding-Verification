@@ -45,3 +45,8 @@
     (ok true)
   )
 )
+
+;; Read-only function to get contract STX balance
+(define-read-only (get-contract-balance)
+  (stx-get-account (as-contract tx-sender))
+)
