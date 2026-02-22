@@ -106,3 +106,7 @@
     )
   )
 )
+
+(define-read-only (get-supplier-count)
+  (var-get supplier-id-nonce)
+)
