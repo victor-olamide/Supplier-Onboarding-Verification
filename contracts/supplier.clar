@@ -1,0 +1,1 @@
+;; Supplier contract for storing supplier information
