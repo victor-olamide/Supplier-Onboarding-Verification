@@ -51,3 +51,22 @@
     )
   )
 )
+
+(define-public (update-supplier (supplier-id uint) (name (string-ascii 256)) (location (string-ascii 256)) (verification-status bool))
+  (let
+    (
+      (supplier (unwrap! (map-get? suppliers supplier-id) (err u1)))
+    )
+    (begin
+      (map-set suppliers supplier-id
+        {
+          name: name,
+          location: location,
+          verification-status: verification-status,
+          ipfs-hashes: (get ipfs-hashes supplier)
+        }
+      )
+      (ok true)
+    )
+  )
+)
