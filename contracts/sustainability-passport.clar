@@ -61,3 +61,30 @@
     (nft-transfer? sustainability-passport token-id sender recipient)
   )
 )
+
+;; Mint function
+(define-public (mint (recipient principal) (product-name (string-ascii 256)) (supplier-id uint) (sustainability-score uint) (carbon-footprint uint) (materials (list 10 (string-ascii 64))) (certifications (list 10 (string-ascii 64))) (ipfs-hash (string-ascii 64)))
+  (let
+    (
+      (token-id (+ (var-get last-token-id) u1))
+    )
+    (begin
+      (asserts! (<= sustainability-score u100) ERR-INVALID-SCORE)
+      (try! (nft-mint? sustainability-passport token-id recipient))
+      (map-set passport-data token-id
+        {
+          product-name: product-name,
+          supplier-id: supplier-id,
+          sustainability-score: sustainability-score,
+          carbon-footprint: carbon-footprint,
+          materials: materials,
+          certifications: certifications,
+          ipfs-hash: ipfs-hash,
+          mint-date: block-height
+        }
+      )
+      (var-set last-token-id token-id)
+      (ok token-id)
+    )
+  )
+)
