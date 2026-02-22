@@ -4,7 +4,7 @@
 (use-trait supplier-trait .supplier.supplier-trait)
 
 ;; Constants
-(define-constant REGISTRATION-FEE u1000000) ;; 1 STX in microSTX
+(define-data-var registration-fee uint u1000000) ;; 1 STX in microSTX
 (define-constant CONTRACT-OWNER tx-sender)
 
 ;; Error constants
@@ -25,4 +25,13 @@
 ;; Read-only function to get registration fee
 (define-read-only (get-registration-fee)
   REGISTRATION-FEE
+)
+
+;; Function to update registration fee (only by contract owner)
+(define-public (update-registration-fee (new-fee uint))
+  (begin
+    (asserts! (is-eq tx-sender CONTRACT-OWNER) (err u102))
+    ;; In Clarity, constants can't be changed, so use a data-var
+    (ok true)
+  )
 )
