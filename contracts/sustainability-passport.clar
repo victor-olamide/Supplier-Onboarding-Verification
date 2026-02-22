@@ -41,3 +41,12 @@
 (define-read-only (get-last-token-id)
   (ok (var-get last-token-id))
 )
+
+(define-read-only (get-token-uri (token-id uint))
+  (let
+    (
+      (base (var-get base-uri))
+    )
+    (ok (some (concat base (uint-to-ascii token-id))))
+  )
+)
