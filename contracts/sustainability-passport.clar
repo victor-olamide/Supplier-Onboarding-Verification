@@ -50,3 +50,7 @@
     (ok (some (concat base (uint-to-ascii token-id))))
   )
 )
+
+(define-read-only (get-owner (token-id uint))
+  (ok (nft-get-owner? sustainability-passport token-id))
+)
