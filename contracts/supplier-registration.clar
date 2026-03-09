@@ -12,14 +12,30 @@
 (define-constant ERR-INSUFFICIENT-FEE (err u100))
 (define-constant ERR-REGISTRATION-FAILED (err u101))
 (define-constant ERR-UNAUTHORIZED (err u102))
+(define-constant ERR-ALREADY-REGISTERED (err u103)) ;; New error for duplicates
+
+;; Read-only function to check if supplier is registered
+(define-read-only (is-supplier-registered (supplier-contract <supplier-trait>) (supplier-id uint))
+  (let
+    (
+      (supplier-data (contract-call? supplier-contract get-supplier supplier-id))
+    )
+    (is-some supplier-data)
+  )
+)
 
 ;; Registration function with fee payment
 (define-public (register-supplier-with-fee (supplier-contract <supplier-trait>) (name (string-ascii 256)) (location (string-ascii 256)))
   (begin
+    ;; Check if supplier is already registered
+    (asserts! (not (is-supplier-registered supplier-contract tx-sender)) ERR-ALREADY-REGISTERED)
+
     ;; Check if fee is paid
     (try! (stx-transfer? (var-get registration-fee) tx-sender CONTRACT-OWNER))
+
     ;; Call the supplier contract's register function
     (try! (contract-call? supplier-contract register-supplier tx-sender name location))
+
     (ok true)
   )
 )
@@ -50,14 +66,4 @@
 ;; Read-only function to get contract STX balance
 (define-read-only (get-contract-balance)
   (stx-get-account (as-contract tx-sender))
-)
-
-;; Read-only function to check if supplier is registered
-(define-read-only (is-supplier-registered (supplier-contract <supplier-trait>) (supplier-id uint))
-  (let
-    (
-      (supplier-data (contract-call? supplier-contract get-supplier supplier-id))
-    )
-    (is-some supplier-data)
-  )
 )
